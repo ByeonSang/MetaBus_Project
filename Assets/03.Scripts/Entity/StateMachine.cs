@@ -5,10 +5,11 @@ using UnityEngine;
 public class StateMachine : MonoBehaviour
 {
     public IState CurrentState { get; private set; }
+    public FrontWalkState FrontWalk {  get; private set; }
 
-    public StateMachine()
+    public StateMachine(PlayerControll player)
     {
-
+        FrontWalk = new FrontWalkState(player);
     }
 
     public void Initialize()
