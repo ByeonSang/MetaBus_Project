@@ -32,8 +32,6 @@ public class PlayerMovement : MonoBehaviour
         else
             moveDir = Vector3.zero;
 
-        Debug.Log(moveDir);
-
         if (moveDir.magnitude > 0f)
         {
             Move(moveDir * moveSpeed * Time.deltaTime);
