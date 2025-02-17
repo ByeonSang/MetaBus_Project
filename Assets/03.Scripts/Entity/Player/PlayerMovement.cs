@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,37 +11,36 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed;
 
     private Vector2 moveInput;
-    public Vector2 moveDir;
-
-    private CharacterController characterController;
-
+    public Vector3 moveDir;
 
     private void Awake()
     {
         controlls = new PlayerControlls();
 
         controlls.Character.Movement.performed += context => moveInput = context.ReadValue<Vector2>();
-        controlls.Character.Movement.canceled += context => moveInput = Vector2.zero;
-    }
-
-    private void Start()
-    {
-        characterController = GetComponent<CharacterController>();
+        controlls.Character.Movement.canceled += context => moveInput = Vector3.zero;
     }
 
     private void Update()
     {
         if (Mathf.Abs(moveInput.x) > 0)
-            moveDir = new Vector2(moveInput.x, 0);
+            moveDir = Vector3.right * moveInput.x;
         else if (Mathf.Abs(moveInput.y) > 0)
-            moveDir = new Vector2(0, moveInput.y);
+            moveDir = Vector3.up * moveInput.y;
         else
-            moveDir = Vector2.zero;
+            moveDir = Vector3.zero;
+
+        Debug.Log(moveDir);
 
         if (moveDir.magnitude > 0f)
         {
-            characterController.Move(moveDir * moveSpeed * Time.deltaTime);
+            Move(moveDir * moveSpeed * Time.deltaTime);
         }
+    }
+
+    private void Move(Vector3 position)
+    {
+        transform.position += position;
     }
 
 
