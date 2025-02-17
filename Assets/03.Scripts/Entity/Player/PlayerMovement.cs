@@ -8,10 +8,12 @@ public class PlayerMovement : MonoBehaviour
 {
     private PlayerControlls controlls;
 
+    [Header("Player Info")]
     [SerializeField] private float moveSpeed;
 
     private Vector2 moveInput { get; set; }
     public Vector3 moveDir { get; private set; }
+
 
     private void Awake()
     {
