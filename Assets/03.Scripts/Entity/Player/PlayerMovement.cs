@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed;
 
     private Vector2 moveInput;
-    private Vector2 moveDir;
+    public Vector2 moveDir;
 
     private CharacterController characterController;
 
@@ -30,9 +30,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        moveDir = new Vector2(moveInput.x, moveInput.y);
+        if (Mathf.Abs(moveInput.x) > 0)
+            moveDir = new Vector2(moveInput.x, 0);
+        else if (Mathf.Abs(moveInput.y) > 0)
+            moveDir = new Vector2(0, moveInput.y);
+        else
+            moveDir = Vector2.zero;
 
-        if(moveDir.magnitude > 0f)
+        if (moveDir.magnitude > 0f)
         {
             characterController.Move(moveDir * moveSpeed * Time.deltaTime);
         }

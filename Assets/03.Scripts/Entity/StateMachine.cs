@@ -1,20 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class StateMachine : MonoBehaviour
+public class StateMachine
 {
     public IState CurrentState { get; private set; }
-    public FrontWalkState FrontWalk {  get; private set; }
 
-    public StateMachine(PlayerControll player)
+    public void Initialize(IState startState)
     {
-        FrontWalk = new FrontWalkState(player, this);
-    }
-
-    public void Initialize()
-    {
-        
+        CurrentState = startState;
+        CurrentState.Enter();
     }
 
     public void ChangeState(IState nextState)
@@ -24,11 +15,5 @@ public class StateMachine : MonoBehaviour
 
         CurrentState = nextState;
         nextState.Enter();
-    }
-
-    public void Update()
-    {
-        if(CurrentState != null)
-            CurrentState.Update();
     }
 }
