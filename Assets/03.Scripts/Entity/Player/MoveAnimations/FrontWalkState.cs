@@ -1,6 +1,6 @@
 public class FrontWalkState : IState
 {
-    private PlayerMovement player;
+    private PlayerControll player;
     private StateMachine stateMachine;
 
     public FrontWalkState(PlayerControll player, StateMachine stateMachine)

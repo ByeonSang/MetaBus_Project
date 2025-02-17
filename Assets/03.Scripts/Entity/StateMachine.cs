@@ -9,7 +9,7 @@ public class StateMachine : MonoBehaviour
 
     public StateMachine(PlayerControll player)
     {
-        FrontWalk = new FrontWalkState(player);
+        FrontWalk = new FrontWalkState(player, this);
     }
 
     public void Initialize()
@@ -28,6 +28,7 @@ public class StateMachine : MonoBehaviour
 
     public void Update()
     {
-        CurrentState.Update();
+        if(CurrentState != null)
+            CurrentState.Update();
     }
 }
