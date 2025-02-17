@@ -207,7 +207,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.4431373, g: 0.67058825, b: 0.19215688, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -277,6 +277,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1665615488}
   followSpeed: 3
+  minDistance: {x: -5.8, y: -7.8}
+  maxDistance: {x: 2.7, y: 6.8}
 --- !u!1 &608148430
 GameObject:
   m_ObjectHideFlags: 0
