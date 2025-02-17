@@ -10,8 +10,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float moveSpeed;
 
-    private Vector2 moveInput;
-    public Vector3 moveDir;
+    private Vector2 moveInput { get; set; }
+    public Vector3 moveDir { get; private set; }
 
     private void Awake()
     {
@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void Move(Vector3 position)
+    public void Move(Vector3 position)
     {
         transform.position += position;
     }

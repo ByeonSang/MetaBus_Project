@@ -8092,10 +8092,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1665615488}
+  - component: {fileID: 1665615490}
+  - component: {fileID: 1665615491}
   - component: {fileID: 1665615489}
   - component: {fileID: 1665615486}
-  - component: {fileID: 1665615491}
-  - component: {fileID: 1665615490}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
