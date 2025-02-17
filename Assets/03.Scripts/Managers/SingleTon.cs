@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SingleTon<T> : MonoBehaviour where T : MonoBehaviour
@@ -34,12 +35,12 @@ public class SingleTon<T> : MonoBehaviour where T : MonoBehaviour
                         GameObject singletonObject = new GameObject();
                         instance = singletonObject.AddComponent<T>();
                         singletonObject.name = typeof(T).ToString();
-
+                        Debug.Log(singletonObject.name);
                         DontDestroyOnLoad(singletonObject);
                     }
                     
-                    // 만약 현재 싱글톤이 최상위 객체가 있으면 최상위 객체를 삭제X
-                    if(instance.transform.root != null)
+                    // 만약 현재 싱글톤이 상위 객체가 있으면 최상위 객체를 삭제X
+                    if(instance.transform.parent != null && instance.transform.root != null)
                         DontDestroyOnLoad(instance.transform.root.gameObject);
                 }
             }
