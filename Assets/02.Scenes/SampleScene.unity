@@ -8676,8 +8676,9 @@ GameObject:
   - component: {fileID: 1196926069}
   - component: {fileID: 1196926071}
   - component: {fileID: 1196926070}
+  - component: {fileID: 1196926072}
   m_Layer: 0
-  m_Name: Trigger
+  m_Name: SceneTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8757,6 +8758,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switchNumber: 0
   target: {fileID: 1915163149}
+--- !u!114 &1196926072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196926068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7027998d9a8540943a311569fc3df8d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchNumber: 0
+  target: {fileID: 1915163149}
+  keyCode: 102
+  SceneNumber: 0
 --- !u!1 &1291758018
 GameObject:
   m_ObjectHideFlags: 0
