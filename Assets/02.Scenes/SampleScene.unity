@@ -8755,6 +8755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf94c99db458b64298209d149db1cf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  switchNumber: 0
   target: {fileID: 1915163149}
 --- !u!1 &1291758018
 GameObject:
@@ -9207,6 +9208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9c173e1aef557d4ea8a5b6062aa24fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionInfo:
+  - "StackZone \uC785\uC7A5\uD558\uAE30"
 --- !u!1 &1919067066
 GameObject:
   m_ObjectHideFlags: 0
