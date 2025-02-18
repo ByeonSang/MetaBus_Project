@@ -10,8 +10,8 @@ public class Switch : MonoBehaviour
 
     private void Awake()
     {
-        target.TryGetComponent<ISwitchable>(out switchable);
-
+        if (!target.TryGetComponent<ISwitchable>(out switchable))
+            Debug.LogError("switchable NullReference");
     }
 
     public void Toggle()
