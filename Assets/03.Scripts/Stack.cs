@@ -51,6 +51,12 @@ public class Stack : MonoBehaviour
             isIgnore = true;
         Vector2 nextPosition = new Vector2(transform.position.x, curParentY - StackCount);
         transform.position = Vector2.Lerp(transform.position, nextPosition, Time.deltaTime * 5f);
+
+        if (isIgnore)
+        {
+            curBlock.AddComponent<Rigidbody2D>().AddForce(Vector2.one * 500f);
+            prevBlock.AddComponent<Rigidbody2D>().AddForce(Vector2.one * -500f);
+        }
     }
 
 
@@ -119,6 +125,9 @@ public class Stack : MonoBehaviour
 
                 GameObject newSliceBlock = SpawnBlock(deathPivotX, curBlock.transform.localPosition.y, sliceDeathWidth, true);
                 newSliceBlock.AddComponent<Rigidbody2D>();
+                newSliceBlock.AddComponent<BoxCollider2D>();
+                newSliceBlock.name = "Slice";
+                newSliceBlock.tag = "Slice";
 
                 float lifePivotX = (isLeft) ? prevEndPoint + (sliceLifeWidth / 2) : prevEndPoint - (sliceLifeWidth / 2);
 
