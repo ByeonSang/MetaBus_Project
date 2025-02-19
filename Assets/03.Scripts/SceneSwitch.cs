@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,13 +8,6 @@ public class SceneSwitch : Switch
 
     private bool isStay = false;
     private bool isDown = false;
-    
-    private FadeEffect fadeEffect;
-
-    private void Start()
-    {
-        fadeEffect = UIManager.Instance.fadeEffect;
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

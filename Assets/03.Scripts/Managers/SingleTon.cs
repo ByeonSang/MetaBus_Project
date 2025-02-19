@@ -32,7 +32,7 @@ public class SingleTon<T> : MonoBehaviour where T : MonoBehaviour
 
                     if(instance == null)
                     {
-                        GameObject singletonObject = new GameObject();
+                        var singletonObject = new GameObject();
                         instance = singletonObject.AddComponent<T>();
                         singletonObject.name = typeof(T).ToString();
                         Debug.Log(singletonObject.name);
@@ -40,7 +40,7 @@ public class SingleTon<T> : MonoBehaviour where T : MonoBehaviour
                     }
                     
                     // 만약 현재 싱글톤이 상위 객체가 있으면 최상위 객체를 삭제X
-                    if(instance.transform.parent != null && instance.transform.root != null)
+                    if(instance.transform.parent != null || instance.transform.root != null)
                         DontDestroyOnLoad(instance.transform.root.gameObject);
                 }
             }

@@ -38,5 +38,6 @@ public class FadeEffect : MonoBehaviour
 
             yield return null;
         }
+        transform.root.gameObject.SetActive(false);
     }
 }
