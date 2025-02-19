@@ -14,6 +14,8 @@ public class Stack : MonoBehaviour
     const float originScale = 5f;
     const float errorMargin = 0.1f;
 
+    [SerializeField] private MiniGameUI UI;
+    [Space]
     [SerializeField] private GameObject blockPrefab;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float pingpongDist;
@@ -56,6 +58,8 @@ public class Stack : MonoBehaviour
         {
             curBlock.AddComponent<Rigidbody2D>().AddForce(Vector2.one * 500f);
             prevBlock.AddComponent<Rigidbody2D>().AddForce(Vector2.one * -500f);
+            UI.CurrentScore = StackCount;
+            UI.GameOver();
         }
     }
 
@@ -76,6 +80,8 @@ public class Stack : MonoBehaviour
             curBlock = newBlock;
 
             StackCount++;
+            UI.CurrentScore = StackCount;
+            UI.SetInGameScore();
         }
 
         SetColor(newBlock.GetComponent<SpriteRenderer>());
@@ -113,11 +119,9 @@ public class Stack : MonoBehaviour
                 sliceDeathWidth *= (isLeft ? -1 : 1);
                 float sliceLifeWidth = curBlock.transform.localScale.x - Mathf.Abs(sliceDeathWidth);
 
-                if (sliceLifeWidth <= 0)
-                {
-                    Debug.Log("GameOver");
+                if (sliceLifeWidth <= 0) // GameOver
                     return false;
-                }
+                
 
                 float prevWidth = (isLeft) ? -prevBlock.transform.localScale.x : prevBlock.transform.localScale.x;
                 float prevEndPoint = prevBlock.transform.localPosition.x + (prevWidth / 2f);
